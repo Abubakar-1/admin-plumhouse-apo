@@ -16,7 +16,7 @@ const baseQuery = fetchBaseQuery({
   baseUrl: baseUrl,
   prepareHeaders: (headers, { getState }) => {
     // Attempt to get the token from the Redux state first
-    let token = (getState() as RootState).auth.token;
+    let token: any = (getState() as RootState).auth.token;
 
     // If the token isn't in the Redux state (e.g., after a page refresh),
     // try to get it from the cookie.
