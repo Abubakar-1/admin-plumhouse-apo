@@ -3,7 +3,6 @@
 import Card from "@/components/ui/Card";
 import { BedDouble, Trash2 } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
 import { useDeleteRoomMutation, useGetRoomsQuery } from "@/api/baseApi";
 
 // Define types for our data for better type safety and autocompletion

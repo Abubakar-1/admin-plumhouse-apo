@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useState, FormEvent, useRef } from "react";
@@ -62,7 +63,7 @@ export default function CreateRoomPage() {
     const roomData = Object.fromEntries(formData.entries());
 
     try {
-      let uploadedImages = [];
+      let uploadedImages: any = [];
 
       if (files.length > 0) {
         setIsUploading(true);

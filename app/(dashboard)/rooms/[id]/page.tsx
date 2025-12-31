@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import Link from "next/link";
@@ -25,16 +26,13 @@ interface RoomImage {
   url: string;
   isPrimary: boolean;
 }
-interface RoomDetails {
-  [key: string]: any;
-} // Simplified for this context
 
 export default function RoomDetailsPage() {
   // --- THIS IS THE FIX (PART 1) ---
   // Use the hook to get the params object.
   const params = useParams();
   // The hook can return a string or string[]. We handle the simple case.
-  const id = Array.isArray(params.id) ? params.id[0] : params.id;
+  const id: any = Array.isArray(params.id) ? params.id[0] : params.id;
   const roomId = parseInt(id, 10);
   const skip = isNaN(roomId);
 
@@ -120,7 +118,7 @@ export default function RoomDetailsPage() {
               <p className="text-gray-500">No primary image available.</p>
             )}
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-              {galleryImages?.map((image, index) => (
+              {galleryImages?.map((image: any, index: any) => (
                 <Image
                   key={index}
                   src={image.url}

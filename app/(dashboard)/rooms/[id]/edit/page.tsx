@@ -29,7 +29,7 @@ const amenitiesMap: { [key: string]: string } = {
 export default function EditRoomPage() {
   const router = useRouter();
   const params = useParams();
-  const id = Array.isArray(params.id) ? params.id[0] : params.id;
+  const id: any = Array.isArray(params.id) ? params.id[0] : params.id;
   const roomId = parseInt(id, 10);
   const skip = isNaN(roomId);
 
@@ -83,7 +83,7 @@ export default function EditRoomPage() {
       // If new files were selected, they replace all old images.
       if (newFiles.length > 0) {
         setIsUploading(true);
-        const sigResult = await triggerGetSignature();
+        const sigResult: any = await triggerGetSignature();
         if (sigResult?.isError || !sigResult?.data) {
           throw new Error("Could not get upload signature.");
         }
